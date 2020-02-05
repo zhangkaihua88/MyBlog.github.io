@@ -80,8 +80,10 @@ window.oldVersion = [
 <meta name="format-detection" content="telephone=no">
 
 <!-- Description -->
-<meta name="description" content="1. Generative Adversarial Nets
-arXiv:1406.266...">
+<meta name="description" content="
+
+1. Generative Adversarial Nets
+">
 
 <!-- Keywords -->
 <meta name="keywords" content=", 深度学习, 论文阅读">
@@ -218,8 +220,10 @@ arXiv:1406.266...">
 <meta property="og:url" content="http://www.zkhweb.top/2020/02/05/Generative Adversarial Networks阅读笔记/">
 <meta property="og:image" content="http://www.zkhweb.top/img/cbhq3-nfw26-006.ico">
 
-<meta property="og:description" content="1. Generative Adversarial Nets
-arXiv:1406.266...">
+<meta property="og:description" content="
+
+1. Generative Adversarial Nets
+">
 
 <meta name="twitter:card" content="summary">
 
@@ -270,7 +274,7 @@ arXiv:1406.266...">
     },
     
     "datePublished": "2020-02-05T03:14:42.000Z",
-    "dateModified": "2020-02-05T08:50:37.495Z",
+    "dateModified": "2020-02-05T09:19:54.295Z",
     "author": {
         "@type": "Person",
         "name": "幻华(Zkher)",
@@ -296,8 +300,10 @@ arXiv:1406.266...">
     },
     
     "keywords": ", 深度学习, 论文阅读",
-    "description": "1. Generative Adversarial Nets
-arXiv:1406.266..."
+    "description": "
+
+1. Generative Adversarial Nets
+"
 }
 </script>
 
@@ -339,6 +345,8 @@ arXiv:1406.266..."
     
     
         <a href="/about/" class="navbar-link">关于</a>
+    
+        <a href="/categories/" class="navbar-link">分类</a>
     
         <a href="/tag/" class="navbar-link">标签</a>
     
@@ -532,11 +540,9 @@ arXiv:1406.266..."
                         
                     
                     <article id="post-content">
-                        <h1><span id="1-generative-adversarial-nets">1. Generative Adversarial Nets</span></h1><blockquote>
-<p>arXiv:1406.2661 [stat.ML]</p>
-</blockquote>
-<!-- toc -->
+                        <!-- toc -->
 <ul>
+<li><a href="#1-generative-adversarial-nets">1. Generative Adversarial Nets</a><ul>
 <li><a href="#11-摘要">1.1. 摘要</a></li>
 <li><a href="#12-介绍">1.2. 介绍</a></li>
 <li><a href="#13-对抗网络">1.3. 对抗网络</a><ul>
@@ -575,7 +581,13 @@ arXiv:1406.266..."
 <li><a href="#18-结论和未来研究方向">1.8. 结论和未来研究方向</a></li>
 <li><a href="#19-参考资料">1.9. 参考资料</a></li>
 </ul>
+</li>
+</ul>
 <!-- tocstop -->
+<hr>
+<h1><span id="1-generative-adversarial-nets">1. Generative Adversarial Nets</span></h1><blockquote>
+<p>arXiv:1406.2661 [stat.ML]</p>
+</blockquote>
 <hr>
 <h2><span id="11-摘要">1.1. 摘要</span></h2><p>通过对抗过程估计生成模型的框架，同时训练两个模型：<br><strong>生成模型G</strong>用来获取数据分布<br><strong>判别模型D</strong>估计样本来自训练数据而不是G的概率<br>G的训练目标是为了最大化D产生错误的概率<br>在任意函数G和D的空间中存在唯一的解，其中G恢复训练数据分布，并且D处处都等于$\frac{1}{2}$。</p>
 <hr>
