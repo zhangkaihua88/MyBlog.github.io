@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.2
+    -->
+    <script>
+window.lsVersion = "1.3.2",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记 | 幻华&#39;s Blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="shortcut icon" type="image/ico" href="/img/cbhq3-nfw26-006.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="
+
+">
+
+<!-- Keywords -->
+<meta name="keywords" content=", 深度学习, 论文阅读">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+    
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    
+
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="幻华&#39;s Blog">
+<meta name="msapplication-starturl" content="http://www.zkhweb.top">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="幻华&#39;s Blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记 | 幻华&#39;s Blog">
+<meta property="og:site_name" content="幻华&#39;s Blog">
+
+<meta property="og:locale" content="zh">
+
+<meta property="og:url" content="http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/">
+<meta property="og:image" content="http://www.zkhweb.top/img/cbhq3-nfw26-006.ico">
+
+<meta property="og:description" content="
+
+">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-02-12T15:17:28.000Z">
+    <meta property="article:modified_time" content="2020-02-12T15:17:28.000Z">
+    <meta property="article:author" content="幻华(Zkher)">
+    <meta property="og:article:tag" content=", 深度学习, 论文阅读"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/",
+    "@type": "BlogPosting",
+    "logo": "http://www.zkhweb.top/img/cbhq3-nfw26-006.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/"
+    },
+    "headline": "DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记 | 幻华&#39;s Blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://www.zkhweb.top/img/cbhq3-nfw26-006.ico"
+    },
+    
+    "datePublished": "2020-02-12T15:17:28.000Z",
+    "dateModified": "2020-02-12T15:22:06.797Z",
+    "author": {
+        "@type": "Person",
+        "name": "幻华(Zkher)",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://www.zkhweb.top/img/my.jpg"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "幻华&#39;s Blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://www.zkhweb.top/img/cbhq3-nfw26-006.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://www.zkhweb.top/search/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 深度学习, 论文阅读",
+    "description": "
+
+"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">幻华&#39;s Blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search/" class="navbar-link">搜索</a>
+    
+    
+        <a href="/about/" class="navbar-link">关于</a>
+    
+        <a href="/tag/" class="navbar-link">标签</a>
+    
+        <a href="/gallery/" class="navbar-link">画廊</a>
+    
+        <a href="/links/" class="navbar-link">友链</a>
+    
+        <a href="/en/" class="navbar-link">英语</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=幻华's Blog&url=http://www.zkhweb.top&pic=http://www.zkhweb.top/img/cbhq3-nfw26-006.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=幻华's Blog&url=http://www.zkhweb.top&via=幻华(Zkher)" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zkhweb.top" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://www.zkhweb.top" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://www.zkhweb.top&title=DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=幻华's Blog&title=DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记&summary=&pics=http://www.zkhweb.top/img/cbhq3-nfw26-006.ico&url=http://www.zkhweb.top" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://www.zkhweb.top&text=DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADqElEQVR42u3aS26DQBBFUe9/08kokhVBvVttAwW6nkSxDeYg0V2/188DXy9RokSJEvU41Kt4/X3+/r3Nk20ct/X5+/97x28dS65TlKhJqL0LJRe19xm9Gem4/++X5xAlahAqneT/Z3uLSXrwK0R1w8h1ihJ1B9QKIG20ZEOuFhJRop6Aqn54a1GIwWcDJ0rUHVFkc6QJW4VM56yO/1qULkrUwShaeLn67yHVJFGivoyKRfdGoZMmmVURlC4QH3U9RIk6EJWSuK1CSBXEdr+bCqM0MBYlagoqFRDJw00XhLQ4kAC3TFhFiRqA2kvwdosboalWPez0xpBmgyhRU1G0MEKD3u5FrXxPlKjpKLIgdJrPncZ42uw7gbIoURNQKfFKxQ+y8a5u8mQTRxGFKFEnoqoHkSRoVUGkk0iSgDYeI0rUEFRMvpqFfDLQmxJIihUlaiIqBZepgdZJEOlAJG2sixI1FUUudqWBQC6mEwyXN1uUqIEotMmBwY+986WFidyM3d8TJWoAKiVz6b10I2iBJQ2BoI1dlKihqJTkkcJMtfjQAksnwBUlagoqFTeOugg6BJkKrKiaJErUiSha/CBFexKgdhsLdFMWJWoSKjWxySAHLcjQgDYF0CiiECXqAhQp2tOhKjKkmILgNLDVmiITJeoCFN0kP3nYOwtOCqrLxUqUqCGolODRAagEpYsTSThxkihK1Mko0ngjhc/0HhmWXBkoESVqIqpTLFlttpEGRGcj3rw+UaKGoFLzmpy4KpCkYRKSgKaBLVGipqBaxcIQeJKGHW2mLTXFRYkahEqbZCeZSw0EsmHTm4YLL6JEnYjqNAG6Q4xpuKTalNsBtyhRA1BpWCM14kgBv7rYzs2Kx4gSNQSVms2dYidthncHr8hCJErUBBRtLJOGQFloBMleWjiqz0WJmoIiRc10EWlBSA893ajj4iJK1ADUNwcQ04NPblS3GY4qtKJEnYiqHuyUvNHFojtUXG3g5eImStQgFC24kMFf+tDT5DMtNKJETUJ9MlyVivpp6IoUPzvDwaJETUCRZJEU90lzjhRK6SDlUuFFlKgTUOkhxA8p3Lg7je52ACBK1BBUKmZWjQQ65EGSwc6C0y5mihJ1MqoqoNAhRbqwpIJnZ0hSlKi7oVbgq8kjgZfNOFGiboKKmx4s3iQM2Xyroo8oUZNQneGQTgBLhz7ozS1/U5SoIShaeCmHnT5YAKoguRpMKRcKUaIuQj3pJUqUKFGiHvP6BWOhc+BF8TlrAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+        <a href="/atom.xml" target="_blank" class="navbar-link">RSS</a>
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/my.jpg" src="/img/suka-lazyload.gif" alt="幻华(Zkher)'s Avatar">
+        <span>2020-02-12</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/深度学习论文阅读/">深度学习论文阅读</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记&url=http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/&pic=http://www.zkhweb.top/img/cbhq3-nfw26-006.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=DCGAN:Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks阅读笔记&url=http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/&via=幻华(Zkher)" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/&title=幻华's Blog" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=幻华's Blog&title=幻华's Blog&summary=&pics=http://www.zkhweb.top/img/cbhq3-nfw26-006.ico&url=http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/&text=幻华's Blog" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADqElEQVR42u3aS26DQBBFUe9/08kokhVBvVttAwW6nkSxDeYg0V2/188DXy9RokSJEvU41Kt4/X3+/r3Nk20ct/X5+/97x28dS65TlKhJqL0LJRe19xm9Gem4/++X5xAlahAqneT/Z3uLSXrwK0R1w8h1ihJ1B9QKIG20ZEOuFhJRop6Aqn54a1GIwWcDJ0rUHVFkc6QJW4VM56yO/1qULkrUwShaeLn67yHVJFGivoyKRfdGoZMmmVURlC4QH3U9RIk6EJWSuK1CSBXEdr+bCqM0MBYlagoqFRDJw00XhLQ4kAC3TFhFiRqA2kvwdosboalWPez0xpBmgyhRU1G0MEKD3u5FrXxPlKjpKLIgdJrPncZ42uw7gbIoURNQKfFKxQ+y8a5u8mQTRxGFKFEnoqoHkSRoVUGkk0iSgDYeI0rUEFRMvpqFfDLQmxJIihUlaiIqBZepgdZJEOlAJG2sixI1FUUudqWBQC6mEwyXN1uUqIEotMmBwY+986WFidyM3d8TJWoAKiVz6b10I2iBJQ2BoI1dlKihqJTkkcJMtfjQAksnwBUlagoqFTeOugg6BJkKrKiaJErUiSha/CBFexKgdhsLdFMWJWoSKjWxySAHLcjQgDYF0CiiECXqAhQp2tOhKjKkmILgNLDVmiITJeoCFN0kP3nYOwtOCqrLxUqUqCGolODRAagEpYsTSThxkihK1Mko0ngjhc/0HhmWXBkoESVqIqpTLFlttpEGRGcj3rw+UaKGoFLzmpy4KpCkYRKSgKaBLVGipqBaxcIQeJKGHW2mLTXFRYkahEqbZCeZSw0EsmHTm4YLL6JEnYjqNAG6Q4xpuKTalNsBtyhRA1BpWCM14kgBv7rYzs2Kx4gSNQSVms2dYidthncHr8hCJErUBBRtLJOGQFloBMleWjiqz0WJmoIiRc10EWlBSA893ajj4iJK1ADUNwcQ04NPblS3GY4qtKJEnYiqHuyUvNHFojtUXG3g5eImStQgFC24kMFf+tDT5DMtNKJETUJ9MlyVivpp6IoUPzvDwaJETUCRZJEU90lzjhRK6SDlUuFFlKgTUOkhxA8p3Lg7je52ACBK1BBUKmZWjQQ65EGSwc6C0y5mihJ1MqoqoNAhRbqwpIJnZ0hSlKi7oVbgq8kjgZfNOFGiboKKmx4s3iQM2Xyroo8oUZNQneGQTgBLhz7ozS1/U5SoIShaeCmHnT5YAKoguRpMKRcKUaIuQj3pJUqUKFGiHvP6BWOhc+BF8TlrAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 引言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 相关工作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. DCGAN构建方法(CNN)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. 对抗式训练的细节</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. 参考资料</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <!-- toc -->
+<ul>
+<li><a href="#1-unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks">1. Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</a></li>
+<li><a href="#2-总结">2. 总结</a></li>
+<li><a href="#3-引言">3. 引言</a></li>
+<li><a href="#4-相关工作">4. 相关工作</a></li>
+<li><a href="#5-dcgan构建方法cnn">5. DCGAN构建方法(CNN)</a></li>
+<li><a href="#6-对抗式训练的细节">6. 对抗式训练的细节</a></li>
+<li><a href="#7-参考资料">7. 参考资料</a></li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h1><span id="1-unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks">1. Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</span></h1><blockquote>
+<p>arXiv:1511.06434 [cs]<br>tensorflow2代码：<a href="https://github.com/zhangkaihua88/ML_Paper" target="_blank" rel="noopener">https://github.com/zhangkaihua88/ML_Paper</a></p>
+</blockquote>
+<hr>
+<h1><span id="2-总结">2. 总结</span></h1><ul>
+<li>要解决什么问题<ul>
+<li>结合CNN和GAN，提出了具体的实现细节和技巧</li>
+<li>对CNN结果进行可视化，帮助理解CNN过程</li>
+</ul>
+</li>
+<li>用什么方法解决<ul>
+<li>通过CNN构建GAN中的生成器和判别器</li>
+<li>在CNN具体实现中，提出了一些改进方案，提高稳定性</li>
+</ul>
+</li>
+<li>还存在什么问题<ul>
+<li>稳定性差——GAN通病</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1><span id="3-引言">3. 引言</span></h1><ul>
+<li>提出并评估了一系列卷积GAN体系结构拓扑上的约束条件，这些约束条件使得它们在大多数情况下可以稳定地训练。我们将这种架构称为Deep Convolutional GANs（DCGAN）</li>
+<li>使用图像分类任务上训练出来的判别器和其他的非监督算法做了比较</li>
+<li>对GAN学习到的特征做出了可视化，并经验性的证明了特殊的特征表征了特殊的对象</li>
+<li>针对生成器，我们提出了一个很有趣的算法向量，这个向量能很简单的在语义层面上操作生成样例的质量</li>
+</ul>
+<hr>
+<h1><span id="4-相关工作">4. 相关工作</span></h1><ul>
+<li><p>无监督的表征学习</p>
+<ul>
+<li>一个经典的非监督表征学习手段是做出数据聚类，之后利用聚类结果来改善分类结果。</li>
+<li>训练自编码器（卷积式的自编码器）都能将图像作成紧编码，并且尽可能的通过解码器还原图像<ul>
+<li>分离编码中向量的意义和位置</li>
+<li>分析编码的梯度结构</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>生成自然图像</p>
+<ul>
+<li>参数化领域<br>  是在图像数据库下做匹配，经常对成批的图像做匹配，它在纹理合成，超分辨率重建和in-paiting中用的较多。</li>
+<li>非参数化领域</li>
+</ul>
+</li>
+<li><p>CNN内部的可视化<br>使用反卷积，过滤最大激活，可以逼近网络中每一个卷积滤波器的结果</p>
+</li>
+</ul>
+<hr>
+<h1><span id="5-dcgan构建方法cnn">5. DCGAN构建方法(CNN)</span></h1><ul>
+<li>全卷积网络<br>  使用<strong>逐步卷积替代确定性的空间池化函数</strong>,允许网络学习自身上采样(upsampling)或下采样(downsampling)方式（生成器G/判别器D）。在网络中，所有的pooling层使用步幅卷积(判别网络)和微步幅度卷积(生成网络)进行替换。</li>
+<li>在卷积特征之上消除全连接层<br>  例如全局平均池化，全局平均pooling增强了模型稳定性，但减缓了收敛速度</li>
+<li><p>批量归一化(Batch Normalization)<br>  将每个单元的输入都标准化为0均值与单位方差</p>
+<ul>
+<li>改进了训练问题</li>
+<li><p>缓解了深层网络中的梯度溢出问题</p>
+<p>但实际上，这种方法在深层的生成器中被证明是不适用的，它会<strong>导致生成器反复震荡生成单点数据</strong>。但是，将所有层都进行BN，会导致样本震荡和模型不稳定，所以，<strong>不要在生成器的输出层和判别器的输入层上使用BN</strong>。</p>
+</li>
+</ul>
+</li>
+<li>激活函数<br>  生成器：除了最终输出层使用<code>Tanh</code>，其他都使用<code>Relu</code><br>  判别器：都是用<code>leaky relu</code>(leaky rectified activation)</li>
+</ul>
+<p><strong>稳定DCGAN的架构指导：</strong></p>
+<ul>
+<li>判别器中，使用带步长的卷基层来替换所有pooling层，生成器中使用小步长卷积来代替pooling层。 </li>
+<li>在生成器和判别器中使用BN。 </li>
+<li>去除深度架构中的全连接隐藏层。</li>
+<li>生成器中，除去最后一层使用Tanh之外，每一层都使用ReLU来激活。 </li>
+<li>判别器中，每一层都使用LeakReLU来激活。</li>
+</ul>
+<hr>
+<h1><span id="6-对抗式训练的细节">6. 对抗式训练的细节</span></h1><ul>
+<li>基本对原始数据都不进行数据增强，只是将像素值变换到[-1,1]之间（与生成器最终输出层的tanh对应）</li>
+<li>使用Adam作为优化器，初始学习率0.0002，beta_1=0.5</li>
+<li>leaky relu=0.2</li>
+</ul>
+<p>判别器的网络构造<br><img src="https://image.zkhweb.top/20200212214025.png" alt="20200212214025.png"><br><strong>常用验证unsupervised representation learning algorithms</strong> 的方法是：<br>选择某个监督学习数据集，使用训练好的模型输入数据提取特征，使用线性模型用于监督数据集任务，查看性能。</p>
+<hr>
+<h1><span id="7-参考资料">7. 参考资料</span></h1><p><a href="http://arxiv.org/abs/1511.06434" target="_blank" rel="noopener">Paper—-Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</a><br><a href="https://blog.csdn.net/xiening0618/article/details/79417734" target="_blank" rel="noopener">CSDN—-论文翻译——无监督DCGAN做表征学习</a><br><a href="https://blog.csdn.net/qq_40667584/article/details/79690043" target="_blank" rel="noopener">CSDN—-DCGAN论文译本</a><br><a href="https://blog.csdn.net/wspba/article/details/54730871" target="_blank" rel="noopener">CSDN—-DCGAN论文笔记+源码解析</a><br><a href="https://blog.csdn.net/stalbo/article/details/79359095" target="_blank" rel="noopener">CSDN—-GAN论文阅读——DCGAN</a><br><a href="https://zhuanlan.zhihu.com/p/40126869" target="_blank" rel="noopener">知乎—-精读深度学习论文(26) DCGAN</a><br><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">个人Blog—-Transposed Convolution, Fractionally Strided Convolution or Deconvolution</a></p>
+
+                    </article>
+                    
+    <blockquote class="post-license">
+        <p>
+            <strong>本文作者&nbsp;:&nbsp;幻华(Zkher)</strong>
+            <br>
+            <strong>
+            
+                本文使用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 协议
+            </strong>
+            <br>
+            <strong>本文链接&nbsp;:&nbsp;</strong><a href="http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/">http://www.zkhweb.top/2020/02/12/2016-Unsupervised-Representation-Learning-with-Deep-Convolutional-Generative-Adversarial-Networks阅读笔记/</a>
+        </p>
+    </blockquote>
+
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-02-12");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2020-02-12T15:17:28.000Z" itemprop="datePublished">2020-02-12</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href="/categories/深度学习论文阅读/">深度学习论文阅读</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/深度学习/">#&nbsp;深度学习</a>
+
+<a class="post-tags-list-item" href="/tags/论文阅读/">#&nbsp;论文阅读</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/02/09/2016-InfoGAN-Interpretable-Representation-Learning-by-Information-Maximizing-Generative-Adversarial-Nets阅读笔记/">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">InfoGAN:Interpretable Representation Learning by Information MaximizingGenerative Adversarial Nets阅读笔记</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://www.zkhweb.top">幻华&#39;s Blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+    <!-- Busuanzi Post Views -->
+    <span id="busuanzi_container_site_pv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_pv"></span>
+        <span>Views</span>
+        
+    </span>
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>
