@@ -460,7 +460,7 @@ window.oldVersion = [
                             <div class="tile">
                                 <div class="tile-content">
                                     <span class="tile-subtitle text-gray mb-1">02-07</span>
-                                    <a href="/2020/02/07/2014-Conditional-Generative-Adversarial-Nets阅读笔记/" class="timeline-tile-title ml-1"><span class="tile-title">CGAN:Conditional Generative Adversarial Nets阅读笔记</span></a>
+                                    <a href="/2020/02/07/2013-Maxout-Networks阅读笔记/" class="timeline-tile-title ml-1"><span class="tile-title">Maxout Networks阅读笔记</span></a>
                                 </div>
                             </div>
                         </div>
@@ -477,7 +477,7 @@ window.oldVersion = [
                             <div class="tile">
                                 <div class="tile-content">
                                     <span class="tile-subtitle text-gray mb-1">02-07</span>
-                                    <a href="/2020/02/07/2013-Maxout-Networks阅读笔记/" class="timeline-tile-title ml-1"><span class="tile-title">Maxout Networks阅读笔记</span></a>
+                                    <a href="/2020/02/07/2014-Conditional-Generative-Adversarial-Nets阅读笔记/" class="timeline-tile-title ml-1"><span class="tile-title">CGAN:Conditional Generative Adversarial Nets阅读笔记</span></a>
                                 </div>
                             </div>
                         </div>
@@ -554,6 +554,26 @@ window.oldVersion = [
     <p class="footer-text mb-0">
     
     </p>
+    <div class="copyright">{#
+        #}{% set current = date(Date.now(), "YYYY") %}{#
+        #}{% if theme.footer.beian.enable %}{#
+        #}  {{ next_url('http://www.beian.miit.gov.cn', theme.footer.beian.icp + ' ') }}{#
+        #}{% endif %}{#
+        #}
+        <div>
+        {% if theme.footer.gongan.enable %}{#
+        #} <span style="padding-left:25px;background:url(https://www.return520.com/images/beian.png) no-repeat left center" rel="nofollow">
+        {{ next_url('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode='+theme.footer.gongan.num, theme.footer.gongan.local+'公网安备'+theme.footer.gongan.num+'号' ) }}</span>{#
+        #}{% endif %}
+        </div>
+        <div>
+        &copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} – {% endif %}{#
+        #}<span itemprop="copyrightYear">{{ current }}</span>
+          <span class="with-love" id="animate">
+            <i class="fa fa-{{ theme.footer.icon.name }}"></i>
+          </span>
+          <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || author }}</span>
+    </div>
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
@@ -584,7 +604,7 @@ window.oldVersion = [
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
          --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="noopener">Suka</a>
     </p>
-</footer>
+</div></footer>
 
         
 
