@@ -814,9 +814,9 @@ Loss_{ G }&=KL({ P }_{ g }(x)||{ P }_{ r }(x))-{ P }_{ g }(x)log[1-D^{ * }(x)]\\
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2020/02/07/2014-Conditional-Generative-Adversarial-Nets阅读笔记/">
+            <a href="/2020/02/07/2013-Maxout-Networks阅读笔记/">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
-                <div class="page-item-subtitle">CGAN:Conditional Generative Adversarial Nets阅读笔记</div>
+                <div class="page-item-subtitle">Maxout Networks阅读笔记</div>
             </a>
         </li>
     
@@ -939,9 +939,24 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c 
 <!-- Comment -->
 
 
-<!-- ### Custom Footer ### --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- ### Custom Footer ### -->
 
 
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 
 </html>

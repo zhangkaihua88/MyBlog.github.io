@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zkhweb.top/"/>
-  <updated>2020-05-01T13:20:22.864Z</updated>
+  <updated>2020-05-01T13:33:05.344Z</updated>
   <id>http://www.zkhweb.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.zkhweb.top/2020/05/01/bookmarklet/bookmarklet%20%E5%8F%91%E5%B8%83/"/>
     <id>http://www.zkhweb.top/2020/05/01/bookmarklet/bookmarklet 发布/</id>
     <published>2020-05-01T13:14:42.000Z</published>
-    <updated>2020-05-01T13:20:22.864Z</updated>
+    <updated>2020-05-01T13:33:05.344Z</updated>
     
-    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#常用小书签bookmarklet">常用小书签(bookmarklet)</a><ul><li><a href="#视频倍速播放">视频倍速播放</a></li></ul></li></ul><!-- tocstop --><hr><p>[toc]</p><h1><span id="常用小书签bookmarklet">常用小书签(bookmarklet)</span></h1><hr><h2><span id="视频倍速播放">视频倍速播放</span></h2><p><a href="javascript:(function(){var speed = 2;var videos = document.querySelectorAll('video');for (var video of videos) {var playspeed = video.playbackRate;if (playspeed != speed){video.playbackRate = speed;} else if (playspeed == speed){video.playbackRate = 1;}}})())" target="_blank" rel="noopener">2倍速</a><br><a href="javascript:alert('hi');" target="_blank" rel="noopener">1.5倍速</a></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">javascript:(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> speed = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">var</span> videos = <span class="built_in">document</span>.querySelectorAll(<span class="string">'video'</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> video <span class="keyword">of</span> videos) &#123;</span><br><span class="line">        <span class="keyword">var</span> playspeed = video.playbackRate;</span><br><span class="line">        <span class="keyword">if</span> (playspeed != speed)&#123;</span><br><span class="line">            video.playbackRate = speed;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (playspeed == speed)&#123;</span><br><span class="line">            video.playbackRate = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#常用小书签bookmarklet">常用小书签(bookmarklet)</a><ul><li><a href="#视频倍速播放">视频倍速播放</a></li></ul></li></ul><!-- tocstop --><hr><p>[toc]</p><h1><span id="常用小书签bookmarklet">常用小书签(bookmarklet)</span></h1><hr><h2><span id="视频倍速播放">视频倍速播放</span></h2><ul><li><p>可选倍速</p><ul><li><a href="javascript:(function(){var speed = 2;var videos = document.querySelectorAll('video');for (var video of videos) {var playspeed = video.playbackRate;if (playspeed != speed){video.playbackRate = speed;} else if (playspeed == speed){video.playbackRate = 1;}}})();" target="_blank" rel="noopener">2倍速</a></li><li><a href="javascript:(function(){var speed = 1.75;var videos = document.querySelectorAll('video');for (var video of videos) {var playspeed = video.playbackRate;if (playspeed != speed){video.playbackRate = speed;} else if (playspeed == speed){video.playbackRate = 1;}}})();" target="_blank" rel="noopener">1.75倍速</a></li><li><a href="javascript:(function(){var speed = 1.5;var videos = document.querySelectorAll('video');for (var video of videos) {var playspeed = video.playbackRate;if (playspeed != speed){video.playbackRate = speed;} else if (playspeed == speed){video.playbackRate = 1;}}})();" target="_blank" rel="noopener">1.5倍速</a></li><li><a href="javascript:(function(){var speed = 1.25;var videos = document.querySelectorAll('video');for (var video of videos) {var playspeed = video.playbackRate;if (playspeed != speed){video.playbackRate = speed;} else if (playspeed == speed){video.playbackRate = 1;}}})();" target="_blank" rel="noopener">1.25倍速</a></li></ul></li><li><p>代码可选项：<code>speed</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">javascript:(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> speed = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">var</span> videos = <span class="built_in">document</span>.querySelectorAll(<span class="string">'video'</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> video <span class="keyword">of</span> videos) &#123;</span><br><span class="line">        <span class="keyword">var</span> playspeed = video.playbackRate;</span><br><span class="line">        <span class="keyword">if</span> (playspeed != speed)&#123;</span><br><span class="line">            video.playbackRate = speed;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (playspeed == speed)&#123;</span><br><span class="line">            video.playbackRate = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></li></ul><hr>]]></content>
     
     <summary type="html">
     
@@ -169,6 +169,36 @@
   </entry>
   
   <entry>
+    <title>CGAN:Conditional Generative Adversarial Nets阅读笔记</title>
+    <link href="http://www.zkhweb.top/2020/02/07/2014-Conditional-Generative-Adversarial-Nets%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    <id>http://www.zkhweb.top/2020/02/07/2014-Conditional-Generative-Adversarial-Nets阅读笔记/</id>
+    <published>2020-02-07T03:14:42.000Z</published>
+    <updated>2020-02-12T15:20:50.050Z</updated>
+    
+    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1-conditional-generative-adversarial-nets">1. Conditional Generative Adversarial Nets</a><ul><li><a href="#11-摘要">1.1. 摘要</a></li><li><a href="#12-介绍">1.2. 介绍</a></li><li><a href="#13-条件对抗网络">1.3. 条件对抗网络</a><ul><li><a href="#131-符号定义">1.3.1. 符号定义</a></li><li><a href="#132-知识回顾生成对抗网络">1.3.2. 知识回顾——生成对抗网络</a></li><li><a href="#133-直观感受">1.3.3. 直观感受</a></li><li><a href="#134-目标函数">1.3.4. 目标函数</a></li><li><a href="#135-对抗">1.3.5. 对抗</a></li></ul></li><li><a href="#14-实验">1.4. 实验</a><ul><li><a href="#141-单模式mnist">1.4.1. 单模式——MNIST</a></li><li><a href="#142-多模式mir-flickr">1.4.2. 多模式——MIR Flickr</a></li></ul></li><li><a href="#15-参考资料">1.5. 参考资料</a></li></ul></li></ul><!-- tocstop --><hr><h1><span id="1-conditional-generative-adversarial-nets">1. Conditional Generative Adversarial Nets</span></h1><blockquote><p>arXiv:1411.1784 [cs.LG]<br>tensorflow2代码：<a href="https://github.com/zhangkaihua88/ML_Paper" target="_blank" rel="noopener">https://github.com/zhangkaihua88/ML_Paper</a></p></blockquote><hr><h2><span id="11-摘要">1.1. 摘要</span></h2><p>在GAN的基础上引入标签y，同时使用在生成器和判别器中.<br>可以应用于<a href="https://www.jiqizhixin.com/graph/technologies/4468592f-93e9-4575-be91-fd64c0c6afe0" target="_blank" rel="noopener">多模态模型</a>中。</p><hr><h2><span id="12-介绍">1.2. 介绍</span></h2><p>生成对抗网络</p><ul><li>规避了棘手的概率计算</li><li>不需要使用马尔科夫链，仅使用反向传播算法去获得梯度</li><li>训练时不需要推断，可以轻松的将各种因素和相互作用纳入模型</li></ul><p>但<strong>无条件生成模型无法控制生成的数据</strong>，给模型加入附加信息可以知道数据的生成</p><hr><h2><span id="13-条件对抗网络">1.3. 条件对抗网络</span></h2><h3><span id="131-符号定义">1.3.1. 符号定义</span></h3><p>$x$ $\rightarrow$ 真实数据<br>$y$ $\rightarrow$ 标签（辅助信息）<br>$z$ $\rightarrow$ 噪音（生成器的输入数据）<br>$p_x$ $\rightarrow$ 真实数据的分布<br>$p_{z}(z)$ $\rightarrow$ 原始噪音数据的分布<br>$p_g$ $\rightarrow$ 经过生成器后数据的分布<br>$G()$ $\rightarrow$ 生成映射函数（可微），结构为多层感知机，参数$\theta_{g}$<br>$D()$ $\rightarrow$ 判别映射函数（可微），结构为多层感知机，参数$\theta_{d}$<br>$G(z;\theta_{g})$ $\rightarrow$ 将噪音$z$映射到新的数据空间<br>$D(x ; \theta_{d})$ $\rightarrow$ $x$来自真实数据而不是生成数据的概率（真=1，假=0）</p><h3><span id="132-知识回顾生成对抗网络">1.3.2. 知识回顾——生成对抗网络</span></h3><p>生成器G，判别器D，相互对抗使目标函数，达到最优。</p><script type="math/tex; mode=display">\min _{G}\max _{ D } V(D,G)={ \mathbb{E} }_{ x ～ { p }_  { data } (x) }[logD(x)] + { \mathbb{E} }_{ z ～ { p }_{ z }(z) }[log(1-D(G(z)))]</script><h3><span id="133-直观感受">1.3.3. 直观感受</span></h3><p><img src="https://image.zkhweb.top/20200205211839.png" alt="20200205211839.png"></p><h3><span id="134-目标函数">1.3.4. 目标函数</span></h3><script type="math/tex; mode=display">\min _{G}\max _{ D } V(D,G)={ \mathbb{E} }_{ x ～ { p }_  { data } (x) }[logD(x|y)] + { \mathbb{E} }_{ z ～ { p }_{ z }(z) }[log(1-D(G(z|y)))]</script><p>和原始GAN相近，只是G，D在y的条件下生成或判别</p><h3><span id="135-对抗">1.3.5. 对抗</span></h3><p>生成器G通过z，y联合生成图片<br>判别器D在y的条件下判别G(z)<br>主要是在y条件下的MinMax Game</p><hr><h2><span id="14-实验">1.4. 实验</span></h2><h3><span id="141-单模式mnist">1.4.1. 单模式——MNIST</span></h3><h3><span id="142-多模式mir-flickr">1.4.2. 多模式——MIR Flickr</span></h3><hr><h2><span id="15-参考资料">1.5. 参考资料</span></h2><p><a href="https://arxiv.org/abs/1411.1784" target="_blank" rel="noopener">Paper—-Conditional Generative Adversarial Nets</a><br><a href="https://zhuanlan.zhihu.com/p/23648795" target="_blank" rel="noopener">知乎—-《Conditional Generative Adversarial Nets》阅读笔记</a><br><a href="https://blog.csdn.net/Chaolei3/article/details/78870858" target="_blank" rel="noopener">CSDN—-Conditional Generative Adversarial Nets论文翻译</a><br><a href="https://blog.csdn.net/wspba/article/details/54666907" target="_blank" rel="noopener">CSDN—-Conditional Generative Adversarial Nets论文笔记</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1-conditional-generative-adversarial-nets&quot;&gt;1. Conditional Generative Adversarial Nets&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#
+      
+    
+    </summary>
+    
+      <category term="深度学习论文阅读" scheme="http://www.zkhweb.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="深度学习" scheme="http://www.zkhweb.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="论文阅读" scheme="http://www.zkhweb.top/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Maxout Networks阅读笔记</title>
     <link href="http://www.zkhweb.top/2020/02/07/2013-Maxout-Networks%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.zkhweb.top/2020/02/07/2013-Maxout-Networks阅读笔记/</id>
@@ -186,36 +216,6 @@
 &lt;li&gt;&lt;a href=&quot;#1-maxout-networks&quot;&gt;1. Maxout Networks&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#11-摘要&quot;&gt;1.1. 摘要&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#12-介绍&quot;&gt;1.2
-      
-    
-    </summary>
-    
-      <category term="深度学习论文阅读" scheme="http://www.zkhweb.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="深度学习" scheme="http://www.zkhweb.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="论文阅读" scheme="http://www.zkhweb.top/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CGAN:Conditional Generative Adversarial Nets阅读笔记</title>
-    <link href="http://www.zkhweb.top/2020/02/07/2014-Conditional-Generative-Adversarial-Nets%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    <id>http://www.zkhweb.top/2020/02/07/2014-Conditional-Generative-Adversarial-Nets阅读笔记/</id>
-    <published>2020-02-07T03:14:42.000Z</published>
-    <updated>2020-02-12T15:20:50.050Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1-conditional-generative-adversarial-nets">1. Conditional Generative Adversarial Nets</a><ul><li><a href="#11-摘要">1.1. 摘要</a></li><li><a href="#12-介绍">1.2. 介绍</a></li><li><a href="#13-条件对抗网络">1.3. 条件对抗网络</a><ul><li><a href="#131-符号定义">1.3.1. 符号定义</a></li><li><a href="#132-知识回顾生成对抗网络">1.3.2. 知识回顾——生成对抗网络</a></li><li><a href="#133-直观感受">1.3.3. 直观感受</a></li><li><a href="#134-目标函数">1.3.4. 目标函数</a></li><li><a href="#135-对抗">1.3.5. 对抗</a></li></ul></li><li><a href="#14-实验">1.4. 实验</a><ul><li><a href="#141-单模式mnist">1.4.1. 单模式——MNIST</a></li><li><a href="#142-多模式mir-flickr">1.4.2. 多模式——MIR Flickr</a></li></ul></li><li><a href="#15-参考资料">1.5. 参考资料</a></li></ul></li></ul><!-- tocstop --><hr><h1><span id="1-conditional-generative-adversarial-nets">1. Conditional Generative Adversarial Nets</span></h1><blockquote><p>arXiv:1411.1784 [cs.LG]<br>tensorflow2代码：<a href="https://github.com/zhangkaihua88/ML_Paper" target="_blank" rel="noopener">https://github.com/zhangkaihua88/ML_Paper</a></p></blockquote><hr><h2><span id="11-摘要">1.1. 摘要</span></h2><p>在GAN的基础上引入标签y，同时使用在生成器和判别器中.<br>可以应用于<a href="https://www.jiqizhixin.com/graph/technologies/4468592f-93e9-4575-be91-fd64c0c6afe0" target="_blank" rel="noopener">多模态模型</a>中。</p><hr><h2><span id="12-介绍">1.2. 介绍</span></h2><p>生成对抗网络</p><ul><li>规避了棘手的概率计算</li><li>不需要使用马尔科夫链，仅使用反向传播算法去获得梯度</li><li>训练时不需要推断，可以轻松的将各种因素和相互作用纳入模型</li></ul><p>但<strong>无条件生成模型无法控制生成的数据</strong>，给模型加入附加信息可以知道数据的生成</p><hr><h2><span id="13-条件对抗网络">1.3. 条件对抗网络</span></h2><h3><span id="131-符号定义">1.3.1. 符号定义</span></h3><p>$x$ $\rightarrow$ 真实数据<br>$y$ $\rightarrow$ 标签（辅助信息）<br>$z$ $\rightarrow$ 噪音（生成器的输入数据）<br>$p_x$ $\rightarrow$ 真实数据的分布<br>$p_{z}(z)$ $\rightarrow$ 原始噪音数据的分布<br>$p_g$ $\rightarrow$ 经过生成器后数据的分布<br>$G()$ $\rightarrow$ 生成映射函数（可微），结构为多层感知机，参数$\theta_{g}$<br>$D()$ $\rightarrow$ 判别映射函数（可微），结构为多层感知机，参数$\theta_{d}$<br>$G(z;\theta_{g})$ $\rightarrow$ 将噪音$z$映射到新的数据空间<br>$D(x ; \theta_{d})$ $\rightarrow$ $x$来自真实数据而不是生成数据的概率（真=1，假=0）</p><h3><span id="132-知识回顾生成对抗网络">1.3.2. 知识回顾——生成对抗网络</span></h3><p>生成器G，判别器D，相互对抗使目标函数，达到最优。</p><script type="math/tex; mode=display">\min _{G}\max _{ D } V(D,G)={ \mathbb{E} }_{ x ～ { p }_  { data } (x) }[logD(x)] + { \mathbb{E} }_{ z ～ { p }_{ z }(z) }[log(1-D(G(z)))]</script><h3><span id="133-直观感受">1.3.3. 直观感受</span></h3><p><img src="https://image.zkhweb.top/20200205211839.png" alt="20200205211839.png"></p><h3><span id="134-目标函数">1.3.4. 目标函数</span></h3><script type="math/tex; mode=display">\min _{G}\max _{ D } V(D,G)={ \mathbb{E} }_{ x ～ { p }_  { data } (x) }[logD(x|y)] + { \mathbb{E} }_{ z ～ { p }_{ z }(z) }[log(1-D(G(z|y)))]</script><p>和原始GAN相近，只是G，D在y的条件下生成或判别</p><h3><span id="135-对抗">1.3.5. 对抗</span></h3><p>生成器G通过z，y联合生成图片<br>判别器D在y的条件下判别G(z)<br>主要是在y条件下的MinMax Game</p><hr><h2><span id="14-实验">1.4. 实验</span></h2><h3><span id="141-单模式mnist">1.4.1. 单模式——MNIST</span></h3><h3><span id="142-多模式mir-flickr">1.4.2. 多模式——MIR Flickr</span></h3><hr><h2><span id="15-参考资料">1.5. 参考资料</span></h2><p><a href="https://arxiv.org/abs/1411.1784" target="_blank" rel="noopener">Paper—-Conditional Generative Adversarial Nets</a><br><a href="https://zhuanlan.zhihu.com/p/23648795" target="_blank" rel="noopener">知乎—-《Conditional Generative Adversarial Nets》阅读笔记</a><br><a href="https://blog.csdn.net/Chaolei3/article/details/78870858" target="_blank" rel="noopener">CSDN—-Conditional Generative Adversarial Nets论文翻译</a><br><a href="https://blog.csdn.net/wspba/article/details/54666907" target="_blank" rel="noopener">CSDN—-Conditional Generative Adversarial Nets论文笔记</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1-conditional-generative-adversarial-nets&quot;&gt;1. Conditional Generative Adversarial Nets&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#
       
     
     </summary>
