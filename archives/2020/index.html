@@ -409,7 +409,7 @@ window.oldVersion = [
                             <div class="tile">
                                 <div class="tile-content">
                                     <span class="tile-subtitle text-gray mb-1">05-01</span>
-                                    <a href="/2020/05/01/bookmarklet/bookmarklet 发布/" class="timeline-tile-title ml-1"><span class="tile-title">常用小书签(bookmarklet)</span></a>
+                                    <a href="/2020/05/01/bookmarklet/bookmarklet/" class="timeline-tile-title ml-1"><span class="tile-title">常用小书签(bookmarklet)</span></a>
                                 </div>
                             </div>
                         </div>
@@ -640,9 +640,24 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c 
 <!-- Comment -->
 
 
-<!-- ### Custom Footer ### --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- ### Custom Footer ### -->
 
 
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 
 </html>
