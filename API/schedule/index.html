@@ -7,42 +7,42 @@
 </head>
 
 <body>
-    <li>使用场景：快速中英文浏览<br><img src="./tupian.SVG" alt></li>
+    <li>使用场景：快速中英文浏览<br><svg src="./tupian.SVG" alt></li>
     <pre></pre>
     <script>
         
-        var ver = 3571
-        let output = {}
-        var data = null
-        var url = "https://open-schedule-prod.ai.xiaomi.com/api/v2/client/project/_search?sid=7";
+        // var ver = 3571
+        // let output = {}
+        // var data = null
+        // var url = "https://open-schedule-prod.ai.xiaomi.com/api/v2/client/project/_search?sid=7";
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url);
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("GET", url);
 
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("x-user-id", "144779212");//"1040807718"
+        // xhr.setRequestHeader("Accept", "application/json");
+        // xhr.setRequestHeader("x-user-id", "144779212");//"1040807718"
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                console.log(xhr.status);
-                console.log(xhr.responseText);
-                data = xhr.responseText;
-                data = JSON.parse(data).message;
-                for (let item in data) {
-                    let one_data = data[item].edition;
-                    if (one_data.id == ver) {
-                        output.usage = one_data.usage;
-                        output.positive = one_data.positive;
-                        output.ordinary = one_data.ordinary;
-                        output.negative = one_data.negative;
-                        document.querySelector('body > pre').innerHTML = JSON.stringify(output);
-                        break
-                    }
-                }
-            }
-        };
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState === 4) {
+        //         console.log(xhr.status);
+        //         console.log(xhr.responseText);
+        //         data = xhr.responseText;
+        //         data = JSON.parse(data).message;
+        //         for (let item in data) {
+        //             let one_data = data[item].edition;
+        //             if (one_data.id == ver) {
+        //                 output.usage = one_data.usage;
+        //                 output.positive = one_data.positive;
+        //                 output.ordinary = one_data.ordinary;
+        //                 output.negative = one_data.negative;
+        //                 document.querySelector('body > pre').innerHTML = JSON.stringify(output);
+        //                 break
+        //             }
+        //         }
+        //     }
+        // };
 
-        xhr.send();
+        // xhr.send();
     </script>
 </body>
 </html>
