@@ -11,7 +11,7 @@
             xhr.open("GET", url);
 
             xhr.setRequestHeader("Accept", "application/json");
-            xhr.setRequestHeader("x-user-id", "1040807718"); //"1040807718" 144779212
+            xhr.setRequestHeader("x-user-id", "144779212"); //"1040807718" 144779212
 
             xhr.onreadystatechange = function () {
                 if (xhr.status === 200) {
