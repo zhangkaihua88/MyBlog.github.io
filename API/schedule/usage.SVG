@@ -1,41 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="103" height="20"
     role="img" aria-label="使用人数: None">
     <script>
-        var ver = 3571
-        let output_data = {}
-        var data = null
-        var url = "https://open-schedule-prod.ai.xiaomi.com/api/v2/client/project/_search?sid=7";
+        function getinfo(){
+            var ver = 3571
+            let output_data = {}
+            var data = null
+            var url = "https://open-schedule-prod.ai.xiaomi.com/api/v2/client/project/_search?sid=7";
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url);
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url);
 
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("x-user-id", "1040807718"); //"1040807718" 144779212
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("x-user-id", "1040807718"); //"1040807718" 144779212
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                console.log(xhr.status);
-                console.log(xhr.responseText);
-                data = xhr.responseText;
-                data = JSON.parse(data).message;
-                for (let item in data) {
-                    let one_data = data[item].edition;
-                    if (one_data.id == ver) {
-                        // output_data.usage = one_data.usage;
-                        // output_data.positive = one_data.positive;
-                        // output_data.ordinary = one_data.ordinary;
-                        // output_data.negative = one_data.negative;
-                        // document.querySelector('body > pre').innerHTML = JSON.stringify(output_data);
-                        document.querySelector("svg > g:nth-child(6) > text:nth-child(4)").innerHTML = one_data.usage
-                        document.querySelector("svg > g:nth-child(6) > text:nth-child(5)").innerHTML = one_data.usage
-                        document.querySelector("svg > title").innerHTML = "使用人数: "+one_data.usage
-                        break
+            xhr.onreadystatechange = function () {
+                if (xhr.status === 200) {
+                    console.log(xhr.status);
+                    console.log(xhr.responseText);
+                    data = xhr.responseText;
+                    data = JSON.parse(data).message;
+                    for (let item in data) {
+                        let one_data = data[item].edition;
+                        if (one_data.id == ver) {
+                            // output_data.usage = one_data.usage;
+                            // output_data.positive = one_data.positive;
+                            // output_data.ordinary = one_data.ordinary;
+                            // output_data.negative = one_data.negative;
+                            // document.querySelector('body > pre').innerHTML = JSON.stringify(output_data);
+                            document.querySelector("svg > g:nth-child(6) > text:nth-child(4)").innerHTML = one_data.usage
+                            document.querySelector("svg > g:nth-child(6) > text:nth-child(5)").innerHTML = one_data.usage
+                            document.querySelector("svg > title").innerHTML = "使用人数: "+one_data.usage
+                            break
+                        }
                     }
                 }
-            }
-        };
-
-        xhr.send();
+            };
+            xhr.send();
+        }
+        getinfo();
     </script>
     <title>使用人数: None</title>
     <linearGradient id="s" x2="0" y2="100%">
