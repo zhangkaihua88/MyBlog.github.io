@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="103" height="20"
-    role="img" aria-label="使用人数: 223">
+    role="img" aria-label="使用人数: None">
     <script>
         var ver = 3571
-        let output = {}
+        let output_data = {}
         var data = null
         var url = "https://open-schedule-prod.ai.xiaomi.com/api/v2/client/project/_search?sid=7";
 
@@ -10,10 +10,10 @@
         xhr.open("GET", url);
 
         xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("x-user-id", "144779212");//"1040807718"
+        xhr.setRequestHeader("x-user-id", "1040807718");//"1040807718" 144779212
 
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
+            if (xhr.readyState === 4 & xhr.status==200) {
                 console.log(xhr.status);
                 console.log(xhr.responseText);
                 data = xhr.responseText;
@@ -21,11 +21,14 @@
                 for (let item in data) {
                     let one_data = data[item].edition;
                     if (one_data.id == ver) {
-                        output.usage = one_data.usage;
-                        output.positive = one_data.positive;
-                        output.ordinary = one_data.ordinary;
-                        output.negative = one_data.negative;
-                        document.querySelector('body > pre').innerHTML = JSON.stringify(output);
+                        // output_data.usage = one_data.usage;
+                        // output_data.positive = one_data.positive;
+                        // output_data.ordinary = one_data.ordinary;
+                        // output_data.negative = one_data.negative;
+                        // document.querySelector('body > pre').innerHTML = JSON.stringify(output_data);
+                        document.querySelector("svg > g:nth-child(6) > text:nth-child(4)").innerHTML = one_data.usage
+                        document.querySelector("svg > g:nth-child(6) > text:nth-child(5)").innerHTML = one_data.usage
+                        document.querySelector("svg > title").innerHTML = "使用人数: "+one_data.usage
                         break
                     }
                 }
@@ -34,7 +37,7 @@
 
         xhr.send();
     </script>
-    <title>使用人数: 223</title>
+    <title>使用人数: None</title>
     <linearGradient id="s" x2="0" y2="100%">
         <stop offset="0" stop-color="#bbb" stop-opacity=".1" />
         <stop offset="1" stop-opacity=".1" />
@@ -54,7 +57,7 @@
         <text aria-hidden="true" x="455" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)"
             textLength="450">使用人数</text><text x="455" y="140" transform="scale(.1)" fill="#fff"
             textLength="450">使用人数</text><text aria-hidden="true" x="865" y="150" fill="#010101" fill-opacity=".3"
-            transform="scale(.1)" textLength="210">223</text><text x="865" y="140" transform="scale(.1)" fill="#fff"
-            textLength="210">223</text>
+            transform="scale(.1)" textLength="210">None</text><text x="865" y="140" transform="scale(.1)" fill="#fff"
+            textLength="210">None</text>
     </g>
 </svg>
